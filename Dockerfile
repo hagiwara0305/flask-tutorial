@@ -13,4 +13,4 @@ RUN amazon-linux-extras install -y python3.8 \
 
 # EXPOSE 80
 
-CMD python3.8 app.py &
+# CMD python3.8 app.py &
