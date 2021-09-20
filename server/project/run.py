@@ -1,7 +1,8 @@
 from flask import Flask
 import mysql.connector
 
-conn = mysql.connector.connect(user='root', password='root', host='172.18.0.2', database='testdb')
+# hostのipだけmysqlに入って「ifconfig」を売って調べる
+conn = mysql.connector.connect(user='root', password='root', host='172.20.0.2', database='testdb')
 cur = conn.cursor()
 
 cur.execute("select * from test;")

@@ -13,9 +13,13 @@ services:
     tty: true
     environment:
         TZ: Asia/Tokyo
-        FLASK_ENV: 'development'    #デバッグモードON
-        FLASK_APP: 'run.py'         #起動用アプリの設定
-    command: flask run -h 0.0.0.0
+
+    # dbのipを手動で入力しないといけない都合上、自動的に走らせると落ちてしまう...
+    # environment:
+    #     TZ: Asia/Tokyo
+    #     FLASK_ENV: 'development'    #デバッグモードON
+    #     FLASK_APP: 'run.py'         #起動用アプリの設定
+    # command: flask run -h 0.0.0.0
 
   mysql:
     image: mysql:5.5
@@ -29,5 +33,5 @@ services:
       TZ: 'Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/data:/var/lib/mysql   # データを保存しているファイル
       - ./docker/db/sql:/docker-entrypoint-initdb.d
